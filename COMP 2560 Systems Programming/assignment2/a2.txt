@@ -1,0 +1,78 @@
+===============================================================================
+                  COMP-2560 SYSTEM PROGRAMMING (Summer 2019)
+                                 ASSIGNMENT 2
+===============================================================================
+
+This assignment comes with 3 attached programs: myls.c, getpwgr.c, and
+timestr.c. The deliverable for the assignment is a modified version of myls.c
+according to the instructions below. Your submission should be a .c file in
+ASCII format with 80 characters per line, and for full marks should compile
+without errors or warnings and produce the expected output.
+
+DUE:    Sun Jun 2 23:55:00 EST 2019
+TOTAL:  20 marks
+
+
+The program myls.c uses the functionality from dirent.h to list the contents
+of a directory, similar to the ls utility. If given no argument, it lists the
+contents of the current directory. Compile it yourself and try it before
+proceeding.
+
+Modify myls.c to output detailed information about each file, similar to the
+output of ls when passed the -l option.
+
+The output should include the following information (all available from one
+handy system call):
+
+    - file type and mode (in ls -l format, e.g. -rw-r--r--)
+    - link count
+    - owner user and group (names, not numbers)
+    - file size in bytes
+    - last modified time (in human-readable form)
+    - file name
+
+There are macros called S_ISREG, S_ISDIR, etc. in sys/stat.h that can help you
+determine the file type from a mode_t and output the appropriate character. The
+file types are:
+
+    -   regular file
+    d   directory
+    l   symbolic link
+    b   block device
+    c   character device
+    p   named pipe (FIFO)
+    s   socket
+
+Recall that constants are defined for each of the 9 permission bits, such as
+S_IRUSR, S_IWGRP, etc. Such a constant can be bitwise-ANDed with a mode_t to
+determine whether the corresponding permission bit is set.
+
+The corresponding user and group names can be looked up from UID and GID
+integers using the functions in pwd.h and grp.h. An example of how to do this
+is given in getpwgr.c.
+
+A time_t is normally represented in seconds since the Epoch. The function
+strftime() from time.h can convert this to human-readable form. An example is
+given in timestr.c.
+
+Files beginning with a . in UNIX are "hidden" files (not normally displayed by
+ls). This includes the links . and .. to the current and parent directories,
+respectively. Your program should not list these files.
+
+The output of your modified program should look reasonably similar to the
+output of ls -l in the same directory (ordering, spacing, and the "total" line
+are not important). Sample output:
+
+    $ ./mylsl
+    -rw-r-----      1       aaron   users   1792    Jan 23 11:32    mylsl.c
+    -rw-r-----      1       aaron   users   327     Jan 23 11:38    timestr.c
+    -rw-r-----      1       aaron   users   2639    Jan 23 12:01    a2.txt
+    drwxr-x---      2       aaron   users   4096    Jan 23 16:41    work
+    -rwxr-x---      1       aaron   users   12741   Jan 23 11:29    mylsl
+    -rw-r-----      1       aaron   users   541     Jan 23 10:38    myls.c
+    -rwxr-x---      1       aaron   users   8201    Jan 23 11:06    myls
+    -rw-r-----      1       aaron   users   710     Jan 23 11:01    getpwgr.c
+
+Check to make sure your program still works when given an argument (i.e. a
+directory other than the current directory). If not, think about why not
+(hint: what kind of path is entry->d_name?), and how you might fix it.

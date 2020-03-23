@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhmtl11/DTD/xhtml11.dtd">
+
+<!-- XML/XHTML boilerplate code -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!-- title-->
+  <head>
+        <title>Image Map</title>
+  </head>
+
+  <body style="background-color: #00FFFF">  
+
+      <!-- most of content follows the body tag -->
+<div style="text-align: center; background-color: #EE1289; color:#FFD700">
+      <h1>IMAGE MAP</h1>
+</div>
+      <p style="text-align: center; color: #FFD700; background-color: #EE1289; margin-left: 20em; margin-right: 20em"><b>Let's explore the Planents of our Solar System </b> </p>
+      <h4 style="text-align: center; color: #990000"> <i> click on the planents to view more information</i></h4>
+
+      
+      <hr />
+      
+      <!-- image map for the solar system with clickable regions (the planets and the sun)-->
+      
+      <map name="map1">
+          <!-- Mercury selection -->
+            <area shape="circle" coords= "75,149,11" href="https://en.wikipedia.org/wiki/Mercury_(planet)" alt="Mercury"/>
+          <!-- Venus Selection -->
+            <area shape="circle" coords="102, 192, 18" href=" https://en.wikipedia.org/wiki/Venus" alt="Venus"/>
+          <!-- Earth Selection -->
+            <area shape="circle" coords="153,164,22" href="https://en.wikipedia.org/wiki/Earth" alt="Earth"/>
+          <!-- Jupiter Selection -->
+            <area shape="circle" coords="239,174,39"  href="https://en.wikipedia.org/wiki/Jupiter" alt="Jupiter"/>
+          <!-- Saturn Selection -->
+            <area shape="circle" coords="259,82,49" href="https://en.wikipedia.org/wiki/Saturn" alt="Saturn"/>
+          <!-- Mars Selection -->
+            <area shape="circle" coords="134,88, 20" href="https://en.wikipedia.org/wiki/Mars" alt="Mars"/>
+          <!-- Uranus Selection -->
+            <area shape="circle" coords="309, 237,21" href="https://en.wikipedia.org/wiki/Uranus" alt="Uranus"/>
+          <!-- Neptune Selection -->
+            <area shape="circle" coords="369, 154, 20" href=" https://en.wikipedia.org/wiki/Neptune" alt="Neptune"/>
+          <!-- Pluto Selection -->
+            <area shape="circle" coords="377, 59, 15" href="https://en.wikipedia.org/wiki/Pluto" alt="Pluto"/>
+          <!-- Sun Selection -->
+            <area shape="poly" coords="2,51,43, 86, 53, 157, 38, 231, 2, 257, 0, 249" href="https://en.wikipedia.org/wiki/Sun" alt="Sun"/>
+      </map> <!-- end of the image map-->
+      
+    
+        <!-- some info for how the image map is constructed for the user -->
+        <div align="center">
+            <p style=" text-align: center; margin-left: 30em; margin-right: 30em"> Since I am taking <b>Introduction to Astronomy</b>, We learn about out Planet system and the stars so, I though exploring the planets using the image map of the solar system will aid in learning more about the system. As you <b>click</b> on each planets, it will redirect you to an external website with more information on the planet. </p>
+
+              <img src="solar1.jpg"  usemap="#map1" alt="solar image"/>
+         </div>     
+      
+      <hr/>
+      <hr/>
+      
+      <!-- references for the home page and back to the top -->
+      <div style="text-align: center">
+        <a href="index.html"> Go Back  | </a>
+        <a href="#top"> Back to Top</a>
+      
+      </div>
+  </body>
+        <!-- these must be the last two lines of an HTML document -->
+</html>

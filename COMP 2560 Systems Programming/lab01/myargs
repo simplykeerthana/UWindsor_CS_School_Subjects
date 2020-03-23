@@ -1,0 +1,8 @@
+#!/bin/sh
+
+FILE = "$@"
+
+ls -1 * .c| $FILE cat
+
+
+#i have to fix this. 

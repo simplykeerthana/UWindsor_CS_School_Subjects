@@ -1,0 +1,19 @@
+#!/bin/sh
+
+
+        PATTERN="$1"
+
+
+	
+	shift
+
+
+        for args in "$@";do
+                if echo $args | grep  $PATTERN 2>/dev/null>&1; then
+                        echo yes
+                else
+                        echo no
+                fi
+         done
+
+

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#this for loop reads in the argument from the user and prints it in a separate line
+
+	for args in "$@"
+		do
+		   echo "$args"
+		done
+
+

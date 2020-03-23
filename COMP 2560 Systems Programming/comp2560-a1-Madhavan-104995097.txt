@@ -1,0 +1,46 @@
+/*
+	Name: Keerthana Madhavan
+	Program: Assignment 1
+	Date: 5/19/19
+*/
+
+Q1) 	-z checks the string and returns True if the length of string is zero.
+
+Q2)     "$1" holds the first parameter from the input string. If there is no braces, 
+	the computer assumes it as an argument($) and tries to expand it.
+
+Q3) 	Exit codes can be used to change the flow of execution depending on the success
+	or failure of commands executed. Normally exit 1 refers to success (true) and 
+	exit 0 refers to failure (false).
+
+Q4) 
+	Util_is_avail function checks whether a utility is available on the system. The 
+	benefit is that the function checks for the utility on the systems and returns 
+	$1 to the screen for failure and along with name of the utility. (so the user 
+	can later install the utility as needed based on the return value of the function). 
+	Almost every other arguments use the utility from the needed list(line 24-30), 
+	so this function is important. 
+	
+Q5)	TMP_FILE_R is assigned to the mktemp command which takes in a given file name and creates 
+	a unique file name. So, TMP_FILE_R holds a unique file name based on the given template 
+	file name.
+
+Q6)	 $TMP_FILE_R  holds the temporary file name created by mktemp. It is important to remove 
+	the file because there is no use for it since it is stored A2PS_CMD and to avoid service 
+	attacks it is better for it to be removed.
+
+Q7) 	$TMP_FILE_M takes in the output title provided by roff2pdf that is created by the mktemp
+	command and then it  redirects it to the $OUTPUT_FILE. SO, the output file will be of the 
+	name OUTPUT_TITLE.
+
+Q8)	This command redirects the value 2 for any process to the null device file, which then 
+	throws it away everything in the file. It is useful when you don't want to save a file 
+	consisting of information or if you want to hide the output.
+
+Q9)	RETVAL is either equal to 0 or 1 because they statement $? returns true or false. 
+	For example in line 119 - 123, if RETVAL is not equal to 0 then the message "error 
+	accessing man pages" is printed. Then the current value of RETVAL is returned. 
+
+
+ 
+

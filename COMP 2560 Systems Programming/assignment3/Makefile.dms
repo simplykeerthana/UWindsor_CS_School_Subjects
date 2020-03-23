@@ -1,0 +1,16 @@
+CC=gcc
+CFLAGS=-Wall -O2
+
+all: testio
+
+testio: testio.o mystdio.o
+	$(CC) -o $@ $^
+
+testio.o: testio.c mystdio.h myfile.h
+	$(CC) $(CFLAGS) -c $<
+
+mystdio.o: mystdio.c mystdio.h myfile.h
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	rm -f core *.o testio
