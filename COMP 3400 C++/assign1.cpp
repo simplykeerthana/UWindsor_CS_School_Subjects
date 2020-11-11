@@ -1,7 +1,6 @@
 
 /*
     Name: Keerthana Madhavan
-    Student ID: 104995097
     COMP 3400 : Assignemnt 1
  */
 
