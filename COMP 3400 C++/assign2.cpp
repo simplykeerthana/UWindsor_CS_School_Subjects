@@ -1,6 +1,5 @@
 /*
     Name: Keerthana Madhavan
-    Student ID: 104995097
     COMP 3400: Assignment 2
     Date: 25/01/2020
  */
