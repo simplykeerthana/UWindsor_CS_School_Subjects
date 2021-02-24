@@ -1,6 +1,5 @@
 /*
 	Name: Keerthana Madhavan
-	Student ID: 104995097
 	Program: Lab 1
 	Date: 16/5/19
 */
