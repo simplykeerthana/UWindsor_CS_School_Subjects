@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- start of the html file -->
+<html> <!-- start of the html page -->
+<head> 
+	<!-- meta data with informaiton-->
+    <meta charset="UTF-8">
+    <meta name="description" content="COMP 3340 Assignment 2">
+    <meta name ="keywords" content ="audio, video, slideshow, photo album">
+    <meta name="author" content="Code from BB">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .slideshow {
+            width: 600px;
+            height: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 0;
+            position: relative;
+            }
+
+ .slideshow_move {
+    width: 600px; /*width of the slideshow */
+    height: 300px; /*height of the slideshow */
+    display:inline-block;									/* the borders and padding of the frame*/
+    animation: move 4s ease-in-out 2s infinite alternate;	 	/*setting the animation for the slideshow, moves in 4s*/
+			
+   }
+
+   @keyframes move {
+        0%,30% { 
+            transform: translateX(0);  		/*initial position */
+        }
+        40%,70% { 
+            transform: translateX(-600px); 	/*move left by 600pixels*/
+        }
+        80%,100% { 
+            transform: translateX(-1200px); /* move left by 1200pixels*/
+        }
+    }
+  
+    </style>
+</head >
+
+<body> 
+    <!-- This is wheere the slideshow division is. This div loads up three images from current directory.
+        Each of the inner divs with source images follow syles of slideshow_move, and the primary div
+        follows style of slideshow.    
+    -->
+    <div class="slideshow">
+    	<div class="slideshow_move">
+        	<img src="anna-tarazevich-Amarn4Hal-w-unsplash.jpg" width="600" height="300" alt="">
+        </div>
+        <div class="slideshow_move">
+        	<img src="chrissie-giannakoudi-lZ13IR82J1I-unsplash.jpg" width="600" height="300" alt="">
+        </div>
+        <div class="slideshow_move">
+        	<img src="ivanna-mykhailiuk-Unoh8etIGV0-unsplash.jpg" width="600" height="300" alt="">
+        </div>
+        
+    	
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+/*
+    name: Keerthana Madhavan
+    Course: COMP 3340, A3
+
+*/
+/* css styles for html*/
+  th, td {
+    border: 1px solid black;
+  }
+
+  .th1{
+    border: 3px solid darkblue;
+  }
+
+  .center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid red;
+    padding: 10px;
+  }
+
+  .left{
+     float: left;
+      width: 20%;
+      border: 3px solid red;
+      padding: 10px;
+      margin-top: 10px;
+  }
+
+
+  .center1 {
+    margin: auto;
+    width: 50%;
+    border: 3px solid red;
+    padding-top: 40px;
+    padding: 10px;
+  }
+
+  .itemImage{
+    width: 200px;
+    height:200px;
+
+  }
+
+  .actionImage{
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      
+  }
+
+  .actionImage:hover{
+    background-color:lightcoral;
+  }
+
+  .decreaseItems{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+  }
+
+  .decreaseItems:hover{
+    background-color:lightcoral;
+  }
+
+  .deleteItems{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+  }
+
+  .deleteItems:hover{
+    background-color:lightcoral;
+  }
+
+  .itemImage:hover{
+    background-color:lightcoral;
+  }
+
+  .itemName{
+      text-align: center;
+  }
+
+  .itemCaption{
+      text-align: center;
+      color: gray;
+  }
+
+  .centerViewMoreItems{
+    margin: auto;
+    width: 50%;
+    border: 3px solid red;
+    padding: 10px;
+    
+
+  }
+
+  .centerViewMoreItems:hover{
+    background-color:lightcoral;
+  }
+
+  .div1{
+      padding-top: 40px;
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+      padding-left: 200px;
+  }
+
+  .backgroundColor{
+        background-color: lightblue;
+  }
+
+  .tableMain{
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+  }
+
+  .tableHeader{
+      background-color: white;
+  }
+
+  .buttonBg{
+      background-color: white;
+  }

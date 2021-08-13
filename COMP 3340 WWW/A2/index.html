@@ -1,0 +1,199 @@
+<!DOCTYPE html> <!-- start of the html file -->
+<html> <!-- start of the html page -->
+<head> 
+	<!-- meta data with informaiton-->
+    <meta charset="UTF-8">
+    <meta name="description" content="COMP 3340 Assignment 2">
+    <meta name ="keywords" content ="audio, video, slideshow, photo album">
+    <meta name="author" content="Keerthana Madhavan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The css below designns a audio,video plays with custom size, and color. The frame css checks if a checkbox was clicked or not-->
+    <style> 
+    
+    audio {display: none;}
+    audio:target {display: inline-block;} 
+    audio { 
+        width: 600px; 
+        box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+        border-radius: 90px;
+        transform: scale(1.05);
+        }
+    
+    video { display:none; }
+    video:target { display: inline-block; }
+
+
+    .myDiv {
+  border: 5px outset red;
+  background-color: lightblue;    
+  text-align: center;
+}
+
+.frame { display: none; }
+#play_music:checked + .frame {
+display: block;
+}
+#play_music:not(:checked) + .frame{
+display: none;
+}
+
+  </style>
+    
+	<title> COMP 3340 A2 </title> <!-- This is the title of the page-->
+    
+</head >
+
+<body> 
+    <hr/>
+    <!-- This division is for the Audio, it has three links to Audio files, 
+        you can click on a audio, and then press the play button. to stop the audio press the
+        stop button above or you press the play button again. Make sure to stop audio before moving
+        to another song
+    -->
+	<div class="myDiv" >
+        <h1>Audio List</h1>
+            <p> Click on a music on the list, click play button on the player, click stop audio to stop and close the player</p>
+            <h3> Please make sure to stop audio before moving onto another song</h3>
+            <button type="button"><a href="index.html">STOP MUSIC</a></button> <!-- by clicking this buttonn the audio will stop, because it is a redirection to index.html-->
+            
+            <li><a href="#audio1"> 37456_Hold-On</a></li> <!-- will render the a audio player to play hold on-->
+            <li><a href="#audio2"> 37458_MillionAir</a></li> <!-- will render the audio player to play Million Air-->
+            <li><a href="#audio3">37459_Rough-Patches</a></li> <!-- will render the audio player to play Rough Patches-->
+       
+            <br>
+            <br>
+            <br>
+           <!-- the three audio elements will create the audio players for each click on the href directions above based on the id field
+                I used the control attribute of the HTML Audio that will allow us to use browser capabilities of playing a audio file.
+            -->
+        <audio title= "Currently Playing Hold On" controls id="audio1"> <source src="37456_Hold-On.mp3" type="audio/mp3"> <p>Currently Playing: Hold On</p> </audio> 
+        <audio title= "Currently Playing Million Air" controls id="audio2"> <source src="37458_MillionAir.mp3" type="audio/mp3">Currently playing: Million Air </audio>
+        <audio title= "Currently Playing Rough Patches" controls id="audio3"> <source src="37459_Rough-Patches.mp3" type="audio/mp3">Currently Playing: Rough Patches </audio>
+        
+
+
+    </div>
+
+    <hr/>
+    <!-- This division is for the Video, it has three links to Video files, 
+        you can click on a video, and then press the play button. to stop the video press the
+        stop button above or you press the play button again. Make sure to stop video before moving
+        to another one
+    -->
+    <div class="myDiv">
+        <h1>Video List</h1>
+        <p> Click on a video on the list, click play button on the player, click stop video to stop and close the player</p>
+        <h3> Please make sure to stop video before moving onto another song</h3>
+        <button type="button"><a href="index.html">STOP VIDEO</a></button> <!-- by clicking this buttonn the video will stop, because it is a redirection to index.html-->
+            <li><a href="#one"> Drone Forest</a></li>
+            <li><a href="#two"> Video Camera Setup</a></li>
+            <li><a href="#three">Ooooo Coffee</a></li>
+       
+            <br>
+            <br>
+            <br>
+
+            
+        <video width="400" height="400" controls autoplay id="one"> <source src="Pexels Videos 3641.mp4"></source> </video>
+        <video width="400" height="400" controls id="two"> <source src="production ID_4010523.mp4"></source></video>
+        <video width="400" height="400" controls id="three"> <source src="production ID_4290129.mp4"></source> </video>
+        
+
+    </div>
+    <hr/>
+    <!-- rendering an automatic slideshow-->
+    <div class="myDiv">
+        <h1>Image Slideshow</h1>
+        <!-- just Slideshow-->
+        <!-- embedding an iframe-->
+        <iframe src="slideshow.html" width="625px" height="335px"  frameBorder="0"></iframe>
+
+    </div>
+    <hr/>
+    <div class="myDiv">
+        <h1>Image Slideshow with Music</h1>
+        <!--  Slideshow with music-->
+        <!-- Embedding an iframe based on click-->
+        
+        <!-- the user must click on the check box for the slideshow to render
+            Once it renders, click on the play button on the audio player 
+        -->
+        <label for="play_music">click the checkbox, to show slideshow and then click play button on the player. To stop the music, click stop button. To rewind, click the rewind button </button></button></label>
+        <input type="checkbox" name="play_music" id="play_music"></input>
+        
+        <iframe id= "play_music" src="slideshow_music.html" width="625px" height="335px" class="frame" frameBorder="0"></iframe>
+        <button type="button"><a href="index.html">STOP MUSIC</a></button> <!-- by clicking this buttonn the video will stop, because it is a redirection to index.html-->
+
+    </div>
+    
+    
+    <hr/>
+    <!-- this section is the table to list all the resources used
+        It contains 3 columns, 9 rows
+    -->
+<h1>Credits</h1>
+<table width="100%" border="1">
+  <tbody>
+    <tr>
+      <th scope="col">File name</th>
+      <th scope="col">Source URL</th>
+      <th scope="col">Description</th>
+    </tr>
+    <tr>
+      <td>37456_Hold-On.mp3</td>
+      <td>https://www.tribeofnoise.com/Solstar</td>
+      <td>Solsar Music & Dance</td>
+    </tr>
+    <tr>
+      <td>37458_MillionAir.mp3</td>
+      <td>https://www.tribeofnoise.com/Solstar</td>
+      <td>Solsar Music & Dance</td>
+    </tr>
+    <tr>
+      <td>37459_Rough-Patches.mp3</td>
+      <td>https://www.tribeofnoise.com/Solstar</td>
+      <td>Solsar Music & Dance</td>
+    </tr>
+    <tr>
+      <td>Pexels videos 3641.mp4</td>
+      <td>https://www.pexels.com/videos/</td>
+      <td>A video of a drone view of a snowy forest</td>
+    </tr>
+    <tr>
+      <td>production ID_4010523.mp4</td>
+      <td>https://www.pexels.com/videos/</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>production ID_4290129.mp4</td>
+      <td>https://www.pexels.com/videos/</td>
+      <td>A hot coffee</td>
+    </tr>
+    <tr>
+      <td>production ID_4010523.mp4</td>
+      <td>https://www.pexels.com/videos/</td>
+      <td>A person is setting up a video camera</td>
+    </tr>
+    <tr>
+      <td>anna-tarazevich-Amarn4Hal-w-unsplash</td>
+      <td>https://unsplash.com/images/stock/royalty-free</td>
+      <td>Coconut trees and lake;</td>
+    </tr>
+    <tr>
+      <td>chrissie-giannakoudi-lZ13IR82J1I-unsplash</td>
+      <td>https://unsplash.com/images/stock/royalty-free</td>
+      <td>An Empty Road like the ROAD;</td>
+    </tr>
+    <tr>
+        <td>ivanna-mykhailiuk-Unoh8etIGV0-unsplash</td>
+        <td>https://unsplash.com/images/stock/royalty-free</td>
+        <td>A Classic Living Room </td>
+      </tr>
+      
+  </tbody>
+</table>
+
+    
+</body>
+
+</html>

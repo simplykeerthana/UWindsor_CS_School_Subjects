@@ -1,0 +1,12 @@
+CREATE TABLE users(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    fname VARCHAR(25) NOT NULL,
+    lname VARCHAR(25) NOT NULL,
+    email VARCHAR(25) NOT NULL
+);
+CREATE TABLE appointment(
+    weekday VARCHAR(10) NOT NULL,
+    hour INT NOT NULL,
+    id INT NOT NULL, 
+    FOREIGN KEY(id) REFERENCES users(id)
+);

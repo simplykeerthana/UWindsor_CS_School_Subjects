@@ -1,0 +1,166 @@
+<!doctype html> 									<!-- start of the html file-->
+<html> 									
+<head>												
+    
+       <!-- meta data with informaiton-->
+    <meta charset="UTF-8">
+    <meta name="description" content="COMP 3340 Assignment 3, a simple shopping cart">
+    <meta name ="keywords" content ="images, cart, items, cost total">
+    <meta name="author" content="Keerthana Madhavan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- llinks to the style sheet-->
+
+    <title> COMP 3340 Assignment 3 </title>
+  
+</head>
+
+<body class="backgroundColor" oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;"> 												<!-- Start of the body of text or the body of the website page-->
+    <div class="left">
+        <h1> COMP 3340 A3</h1>
+        <h2> Shopping Cart</h2>
+        <!-- <p> Name: Keerthana Madhavan</p> -->
+        <!-- <p> Instructions
+
+            <ul>
+                <li> To switch the view back, click on view more items it will take you to the previous 6 item</li>
+                <li> to add items to cart, click on the images or anywhere in the box </li>
+                
+            </ul>
+        </p> --> 
+        <!-- not sure if i can have instructions-->
+    </div>
+    <div class="center">
+	
+	<!-- table consisting of products to add to your cart-->
+	<table >
+		<!-- a single heading captopn with the title Recommended items for sale
+        The caption also has the css that colors the border in Blue -->
+        <caption class="th1"> Recommended Items for Sale </caption>
+        <!-- The first row and displays the first 3 items in 3 columns-->
+		<tr>
+			<td id="item1"></td>
+			<td id="item2"></td>
+			<td id="item3"></td>
+		</tr>
+         <!-- The second row and displays the first 3 items in 3 columns-->
+		<tr>
+			<td id="item4"></td> 
+			<td id="item5"></td>
+			<td id="item6"></td>
+		</tr>
+	</table>
+
+    <div class="div1"> 
+        <!-- this div and button references the javascript function shuffleItems that prints 6 items in random manner, then when clicked
+        on the button -->
+        <button class="centerViewMoreItems" onClick="shuffleItems()">View More Items</button> <!-- button to switch the 6 products-->
+    </div>   
+   </div>
+    <hr>
+   <div class="center1">
+	
+	<!-- table that holds all the items that are in the cart-->
+    <h1 > Shopping Cart</h1>
+    <table > 
+        <!-- the thead has 5 coulumns that repectively prints Item, caption, price, quantity and actions from the shopping cart list -->
+        <thead class="tableHeader">
+            <th>Item </th>
+            <th>Caption </th>
+            <th>Price </th>
+            <th>Quantity </th>
+            <th>Actions </th>
+          </thead>
+          <!-- the tbody is where the tr element gets printed for each element in the 2d array from the getItems id, 
+                the getItems refernce, will each elements in th array and print the rows respectively. 
+           -->
+
+          <tbody id="getItems">
+         <!-- this tbody will reference to a fuction called countTotal() that adds up all the prices based on item quantity and
+            prints on the screen respectively.-->
+          </tbody>
+          <tbody id="totalCart">
+
+          </tbody>
+    </table>
+
+   
+</div>
+    <!-- the below code linkes to the javascript file. -->
+	<script src="script.js"></script>
+    <script>
+        /*this function gets gets all the elements or items in the cart and prints them to a dom table called by index.html. 
+         It will creatte td, tags for item, quanttity, price, caption and action complimenting thead columns. 
+         In the action column there are three button, + that will call the add_item class to add a new item, - that will call the decreaseItem class
+         to decrease by number of clicks and finally the x button tthat will call the remove_item class that will completely delete and 
+         item from the cart. 
+        */
+
+    function refreshCart(){
+	
+        var cartTable = document.getElementById("getItems");					//call the element with the Id = shoppingCart in the HTML file in the var cart
+         cartTable.innerHTML = '';												//clear all contents previously made
+        
+        for(var x = 0; x < itemInShoppingCart.length; x++){	 // this loop will traverse through a the added cart items. 				
+                    var eachRow = document.createElement("tr");	// for each x, this varialble will create a row		
+                    var itemName, itemCaption, itemPrice, itemQuantity, itemAction, addItem, removeItem, deleteItem;
+                    /* 
+                        creating a column to to print first elementt x and the 1st item in the double array. [x][1], [x][2]... and so on till 
+                        all item, caption, pricee and quanttity is sent to the table. 
+                    */
+                    itemName = document.createElement("td");	 			
+                    itemName.innerHTML = itemInShoppingCart[x][1];					
+                    eachRow.appendChild(itemName); // sends this item name to column item
+                    itemCaption = document.createElement("td");				
+                    itemCaption.innerHTML = itemInShoppingCart[x][3];
+                    eachRow.appendChild(itemCaption); // sends this item caption to column caption
+                    itemPrice = document.createElement("td");				
+                    itemPrice.innerHTML = itemInShoppingCart[x][2];
+                    eachRow.appendChild(itemPrice); // sends this item price to column price
+                    itemQuantity = document.createElement("td");			
+                    itemQuantity.innerHTML = itemInShoppingCart[x][4];
+                    eachRow.appendChild(itemQuantity); // sends this item quantity to column quantity
+                    itemAction = document.createElement("td");				
+                    eachRow.appendChild(itemAction); // sends this item action button  to column actions
+                    cartTable.appendChild(eachRow);// adds alll rows we creeatted  
+                    /* The additem creates a button of size 20px witth text + and appends to the Action Column
+                    */    
+                    addItem = document.createElement("button");			
+                    addItem.classList.add("actionImage"); // this has a hover effect
+                    addItem.innerHTML = "+"; // the button will have + 
+                    addItem.setAttribute( "onClick", "add_item("+x+")");	
+                    itemAction.appendChild(addItem);							
+                      /* The removeItem creates a button of size 20px witth text - and appends to the Action Column
+                    */    
+                    removeItem = document.createElement("button");			
+                    removeItem.classList.add("decreaseItems"); // this has a hover effect
+                    removeItem.innerHTML = "-"; // the button will have -
+                    removeItem.setAttribute( "onClick", "remove_item("+x+")");	
+                    itemAction.appendChild(removeItem);	//this appends the button to the action column						
+                      /* The delete item creates a button of size 20px witth text x and appends to the Action Column
+                    */    
+                    deleteItem = document.createElement("button");			
+                    deleteItem.classList.add("deleteItems"); // this has a hover effect
+                    deleteItem.innerHTML = "x"; // the button will have x
+                    deleteItem.setAttribute( "onClick", "del("+x+")");			
+                    itemAction.appendChild(deleteItem);	//this appends the button to the action column							
+           							    
+            console.log(cartTable);
+            countTotal(); // callls the total table 
+           
+        }
+    }</script>
+
+<!-- this is just a simple security measure to prevent ppl seeing source code via shortcute, but still trying to figure out a way to
+    do somethhing for dev tools that lets one see source code. -->
+<script>
+    document.addEventListener("keydown", function(e){
+      // just a simple security measure
+      if (e.ctrlKey || e.keyCode==123) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+    </script>
+
+</body>
+</html>
