@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww20500\viewh12040\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Explanation of Predicates\
+\
+On Line 10 to 25 I have the move_direction predicates that defines the 8 different ways a knight can move in a NxN chess board. In chess, a knight can move either two squares horizontally, 1 vertically followed by another square horizontally. \
+\
+The possible moves a knight can make are:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 \expnd0\expndtw0\kerning0
+  
+\f0 2 left, 1 down\
+   2 left, 1 up\
+   2 right, 1 down\
+   2 right, 1 up\
+   2 up, 1 left\
+   2 up, 1 right\
+   2 down, 1 left\
+   2 down, 1 right\
+\
+Now we need to determine the path that exists from one square to another using the legal knight moves. In knights path we need two make sure to keep track of the cells visited, incase we need to backtrack and choose a different path or if the square has already been taken. I created a list to represent the visited states that will the third parameter in the knight_path/4. \
+\
+knight_path(N,Knights) :- M is N*N-1, knight_path(N,M,[1/1],Knights). This predicate takes in the path NxN calls the knight_path with 4 parameters that always starts from the path [1/1] as specified in the assignment instructions.\
+\
+knight_path(N,M,Visited,Knights) :- Visited = [X/Y|_], move(N,X/Y,U/V),\\+ memberchk(U/V,Visited), \
+M1 is M-1, knight_path(N,M1,[U/V|Visited],Knights). In this predicate, X/Y is the square pairs that are integers from 1 to N. The the move relation (N,X,U/V) is a fact  that the knight can jump from squares X/Y to U/V on a NxN chessboard. The memberchk fact checks if the destination square U/V has been visited or not. If it is not, it checks if it is a valid move and then gets added to the visited list. In this recursion predicate, after all possible solution is exhausted and added to the Visited list, knight_path returns the Visited list as the final result and will return yes or no to whether if the NxN is a valid path or not. \
+\
+move(N,A/B,C/D) :- move_direction(X,Y), C is A+X, C > 0, C =< N, D is B+Y, D > 0, D =< N. This predicate will check whether the move is valid or not. The first check will [1/1] because we specified to start from here every time. Then X/Y and U/V in this case C, D is used to test if the new move is valid, if the value is 0, small or equal to N. move_direction/2 will determine the move of X/Y and adds it to the list, for example after [1,1] on a 5x5 square, next move will be 2/3. \
+\
+}
